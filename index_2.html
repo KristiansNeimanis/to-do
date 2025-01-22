@@ -6,7 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Uzdevumi</h1>
+    <h1>Uzdevumi_2</h1>
     <input type="text" id="input" />
     <button id="button">Pievienot</button>
 
@@ -22,17 +22,26 @@
           return;
         }
         const li = document.createElement("li");
-        li.innerHTML = `${userInput.value} <button data-action="delete">Dzēst</button>`;
+        li.innerHTML = userInput.value;
+
+        const btnDelete = document.createElement("button");
+        btnDelete.innerHTML = "Dzēst";
+        btnDelete.addEventListener("click", function (event) {
+          event.target.parentNode.remove();
+        });
+
+        li.appendChild(btnDelete);
         ul.appendChild(li);
+        userInput.value = "";
       });
 
-      ul.addEventListener("click", handleClickUL);
+      //   ul.addEventListener("click", handleClickUL);
 
-      function handleClickUL(event) {
-        let target = event.target;
-        if (target.dataset.action !== "delete") retrun;
-        target.parentNode.remove();
-      }
+      //   function handleClickUL(event) {
+      //     let target = event.target;
+      //     if (target.dataset.action !== "delete") retrun;
+      //     target.parentNode.remove();
+      //   }
     </script>
   </body>
 </html>
