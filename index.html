@@ -1,13 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1>Uzdevumi</h1>
+    <input type="text" id="input" />
+    <button id="button">Pievienot</button>
+
+    <ul></ul>
     <script>
-        
+      const userInput = document.getElementById("input");
+      const btn = document.querySelector("button");
+      const clear = document.querySelector("clear_button");
+      const ul = document.querySelector("ul");
+
+      btn.addEventListener("click", function () {
+        if (userInput.value == "") {
+          return;
+        }
+        const li = document.createElement("li");
+        li.innerHTML = `${userInput.value} <button>Dzēst</button>`;
+        ul.appendChild(li);
+      });
     </script>
-</body>
+  </body>
 </html>
